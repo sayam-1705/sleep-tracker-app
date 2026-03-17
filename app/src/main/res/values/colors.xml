@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_background">#FDFDFD</color>
+    <color name="dark_text">#1A1C1E</color>
+    <color name="secondary_text">#44474E</color>
+
+    <!-- New Button Palette (Teal) -->
+    <color name="md_theme_light_primary">#00796B</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#B2DFDB</color>
+    <color name="md_theme_light_secondary">#4D635F</color>
+    <color name="md_theme_light_tertiary">#426277</color>
+
+    <!-- Status Colors -->
+    <color name="sleep_stage_bg">#E0F2F1</color>
+    <color name="accent_blue">#00796B</color>
+    <color name="accent_pink">#C2185B</color>
+</resources>
