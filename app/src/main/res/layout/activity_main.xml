@@ -1,178 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_background"
-    android:fillViewport="true">
+    android:padding="24dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main"
+    <TextView
+        android:id="@+id/tvUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sayam Mondal - 2330263"
+        android:textColor="@color/secondary_text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Sleep Tracker"
+        android:textColor="@color/dark_text"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUserInfo" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/timerCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="24dp">
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="2dp"
+        app:strokeWidth="2.5dp"
+        app:strokeColor="@color/md_theme_light_primary"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle">
 
-        <TextView
-            android:id="@+id/tvUserInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sayam Mondal - 2330263"
-            android:textColor="@color/secondary_text"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Sleep Tracker"
-            android:textColor="@color/dark_text"
-            android:textSize="28sp"
-            android:fontFamily="sans-serif-medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvUserInfo" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/timerCard"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="0dp"
-            app:strokeWidth="2dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="48dp">
+
+            <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/md_theme_light_primary"
+                android:textSize="64sp"
+                android:fontFamily="sans-serif-light" />
+
+            <TextView
+                android:id="@+id/tvSleepStage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/stage_badge_bg"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="8dp"
+                android:text="Not Tracking"
+                android:textColor="@color/secondary_text"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <GridLayout
+        android:id="@+id/glButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:columnCount="2"
+        app:layout_constraintTop_toBottomOf="@id/timerCard">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStart"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="Start"
+            android:textSize="20sp"
+            app:cornerRadius="20dp"
+            app:backgroundTint="@color/md_theme_light_primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStop"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:enabled="false"
+            android:text="Stop"
+            android:textSize="20sp"
+            app:cornerRadius="20dp"
+            app:backgroundTint="@color/md_theme_light_primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReset"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="Reset"
+            android:textSize="20sp"
             app:strokeColor="@color/md_theme_light_primary"
-            app:cardBackgroundColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+            app:strokeWidth="2.5dp"
+            app:cornerRadius="20dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="32dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettings"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="Settings"
+            android:textSize="20sp"
+            app:strokeColor="@color/md_theme_light_primary"
+            app:strokeWidth="2.5dp"
+            app:cornerRadius="20dp"
+            app:icon="@android:drawable/ic_menu_preferences" />
+    </GridLayout>
 
-                <Chronometer
-                    android:id="@+id/chronometer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/md_theme_light_primary"
-                    android:textSize="56sp"
-                    android:fontFamily="sans-serif-light" />
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/summaryCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@color/md_theme_light_primaryContainer"
+        app:layout_constraintTop_toBottomOf="@id/glButtons">
 
-                <TextView
-                    android:id="@+id/tvSleepStage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/stage_badge_bg"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="4dp"
-                    android:text="Not Tracking"
-                    android:textColor="@color/secondary_text"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <GridLayout
-            android:id="@+id/glButtons"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:columnCount="2"
-            app:layout_constraintTop_toBottomOf="@id/timerCard">
+            android:orientation="vertical"
+            android:padding="28dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnStart"
-                style="@style/Widget.Material3.Button"
-                android:layout_width="0dp"
-                android:layout_height="64dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:text="Start"
-                android:textSize="18sp"
-                app:cornerRadius="16dp"
-                app:backgroundTint="@color/md_theme_light_primary" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnStop"
-                style="@style/Widget.Material3.Button"
-                android:layout_width="0dp"
-                android:layout_height="64dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:enabled="false"
-                android:text="Stop"
-                android:textSize="18sp"
-                app:cornerRadius="16dp"
-                app:backgroundTint="@color/md_theme_light_primary" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnReset"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="64dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:text="Reset"
-                android:textSize="18sp"
-                app:strokeColor="@color/md_theme_light_primary"
-                app:strokeWidth="2dp"
-                app:cornerRadius="16dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSettings"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="64dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:text="Settings"
-                android:textSize="18sp"
-                app:strokeColor="@color/md_theme_light_primary"
-                app:strokeWidth="2dp"
-                app:cornerRadius="16dp"
-                app:icon="@android:drawable/ic_menu_preferences" />
-        </GridLayout>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/summaryCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/md_theme_light_primaryContainer"
-            app:layout_constraintTop_toBottomOf="@id/glButtons">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvSummary"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:text="Avg. Sleep: 0s"
+                android:textColor="@color/md_theme_light_primary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvSummary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Avg. Sleep: 0s"
-                    android:textColor="@color/md_theme_light_primary"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvGoalStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/secondary_text"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-                <TextView
-                    android:id="@+id/tvGoalStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
